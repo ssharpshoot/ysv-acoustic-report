@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="report-version" content="b-preview-20261024-1"><link rel="icon" href="assets/ysv-logo.png"><title>全椒视听室 · 测量分析汇报</title><link rel="stylesheet" href="assets/slides.css"></head>
+<body class="theater">
+<p class="landscape-hint">手机建议横屏观看；曲线可点按读数。</p>
+<nav class="preview-tools" aria-label="演示控制"><span>全椒视听室</span><button id="narrationToggle" type="button">播放讲解</button><button id="narrationControls" type="button">音频控制</button><button id="fullscreen" type="button">全屏</button><button id="notesToggle" type="button" aria-expanded="false">讲解文字</button></nav>
+<aside class="narration-panel" id="narrationPanel" hidden aria-label="本页语音讲解"><div class="narration-heading"><p id="narrationTitle"></p><button id="narrationClose" type="button" aria-label="收起语音播放器">收起</button></div><audio id="narrationAudio" controls preload="metadata" aria-label="本页讲解音频"></audio><div class="narration-bottom"><span id="narrationStatus" aria-live="polite">点击播放本页讲解</span><button id="narrationReplay" type="button">从头重播</button></div></aside>
+<deck-stage width="1920" height="1080">
+<section class="slide mode-slide" aria-label="房间模态与位置变化">
+ 
+ <div class="sheet">
+  <header><div class="brand-lockup"><img src="assets/ysv-logo.png" alt="源声视界 YUAN SOUND VISION" decoding="sync" loading="eager"></div><p class="eyebrow">房间模态 / 位置变化</p><h1>座位挪一点，<br class="conditional">低频就不一样。</h1><p class="subtitle">同一只低音炮，测量点前后移动25厘米，有些低音会变强，有些会变弱。</p></header>
+  <div class="deck-grid">
+   <div class="visual mode-visual">
+    <div class="visual-head"><p>按房间尺寸看强弱分布</p><div class="controls" id="modeControls"><button class="active" data-mode="length">55.3 Hz · 长向</button><button data-mode="width">57.2 Hz · 宽向</button></div></div>
+    <svg id="roomPlot" viewBox="0 0 1120 430" role="img" aria-label="房间俯视与理想模态相对分布"></svg>
+    <div class="plot-separator"><p>现场实测 / SW1左前炮</p><span>三条曲线使用同一参考</span></div>
+    <svg id="bassPlot" viewBox="0 0 1120 245" role="img" aria-label="SW1前中后三个测点的原始实测曲线"></svg>
+   </div>
+   <aside class="talk mode-talk">
+    <div class="takeaway"><p class="micro">相邻测点间距</p><p class="big">25<span>cm</span></p><p class="takeaway-copy">主位附近的低频，需要多点一起看。</p></div>
+    <div class="position-controls" id="positionControls"><button data-pos="4">前25 cm</button><button class="active" data-pos="1">主位</button><button data-pos="5">后25 cm</button></div>
+    <div class="position-result"><span id="positionName">主位</span><p><b id="nullValue">45.6</b><span>Hz</span></p><span>这一支实测谷底</span></div>
+    <div class="theory-result"><span id="modeName">长向二阶 · 55.3 Hz</span><p>该点理论相对声压 <b id="pressureValue">0.25</b></p></div>
+    <p class="lesson">移动测点看差异，<br>再检查主箱与炮的相加结果。</p>
+   </aside>
+  </div>
+  <footer><p>上图为理想矩形房间的模态示意，不是实测声压；下图为校正前实测。二者不可直接换算。</p><p>房间按总长6.2 m、宽3 m示意；低频有效边界仍需核验。</p></footer>
+ </div>
+</section>
+<section class="slide hf-slide" aria-label="KL650实验室与现场高频对比">
+ 
+ <div class="sheet">
+  <header><div class="brand-lockup"><img src="assets/ysv-logo.png" alt="源声视界 YUAN SOUND VISION" decoding="sync" loading="eager"></div><p class="eyebrow">前三KL650 / 实验室与现场</p><h1>高频的下滑，<br class="conditional">在现场曲线里看得见。</h1></header>
+  <div class="deck-grid">
+   <div class="visual hf-visual">
+    <div class="visual-head"><p>以500–2000 Hz作参考</p><div class="controls" id="channelControls"><button class="active" data-channel="all">三只</button><button data-channel="FL">左</button><button data-channel="FR">右</button><button data-channel="C">中置</button></div></div>
+    <svg id="hfPlot" viewBox="0 0 1120 570" role="img" aria-label="KL650实验室参照与现场前三只的归一化频响"></svg>
+    <div class="legend"><span class="lab">实验室参照</span><span class="fl">左主箱</span><span class="fr">右主箱</span><span class="center">中置</span></div>
+    <p class="hover-readout" id="hfReadout" aria-live="polite">点按曲线，可查看对应频率的相对电平。</p>
+   </div>
+   <aside class="talk hf-talk">
+    <p class="band-title">5–10 kHz</p><p class="band-subtitle">相对各自500–2000 Hz中频</p>
+    <div class="band-values"><div class="metric-fl"><span>左主箱</span><p>−5.6 <small>dB</small></p></div><div class="metric-fr"><span>右主箱</span><p>−9.1 <small>dB</small></p></div><div class="metric-c"><span>中置</span><p>−11.4 <small>dB</small></p></div></div>
+    <div class="next-check"><p>下一步</p><h2>幕布对照＋幕外检查</h2><p>把安装条件与音箱本体分开，<br>再决定怎么处理。</p></div>
+   </aside>
+  </div>
+  <footer><p>现场为GSonic主位原始测量；实验室线由HT Labs原图提取。环境不同，差值不等于幕布损失。</p><p>这里只比较频响形状，不评价音箱最大声压或动态能力。</p></footer>
+ </div>
+</section>
+</deck-stage>
+<div class="slide-navigation"><button id="previous" type="button" aria-label="上一页">上一页</button><button id="next" type="button" aria-label="下一页">下一页</button></div>
+<aside class="speaker-notes" id="speakerNotes" hidden><h2>本页讲解</h2><p id="notesBody"></p><button id="notesClose" type="button">收起</button></aside>
+<script src="assets/narration-data.js"></script><script src="assets/data.js"></script><script src="assets/deck-stage.js"></script><script src="assets/slides.js"></script><script src="assets/narration.js"></script>
+</body></html>

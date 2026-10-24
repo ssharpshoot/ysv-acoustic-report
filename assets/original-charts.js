@@ -75,7 +75,7 @@
   $('hfPlot').addEventListener('pointermove',readAt);$('hfPlot').addEventListener('pointerdown',readAt);
   const deck=document.querySelector('deck-stage');
   const notes=window.NARRATION_DATA.map(page=>page.text);
-  function updateNotes(){$('notesBody').textContent=notes[deck.currentSlide||0];$('previous').disabled=(deck.currentSlide===0);$('next').disabled=(deck.currentSlide===1);}
+  function updateNotes(){$('notesBody').textContent=notes[deck.currentSlide||0];$('previous').disabled=(deck.currentSlide===0);$('next').disabled=(deck.currentSlide===window.NARRATION_DATA.length-1);}
   $('previous').addEventListener('click',()=>{deck.prev();updateNotes();});$('next').addEventListener('click',()=>{deck.next();updateNotes();});
   function toggleNotes(show){$('speakerNotes').hidden=!show;$('notesToggle').setAttribute('aria-expanded',String(show));updateNotes();}
   $('notesToggle').addEventListener('click',()=>toggleNotes($('speakerNotes').hidden));$('notesClose').addEventListener('click',()=>toggleNotes(false));

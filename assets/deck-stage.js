@@ -309,12 +309,13 @@
       if (!stage) return;
 
       const viewportW = window.innerWidth;
-      const viewportH = window.innerHeight;
+      const barTop = window.innerWidth < 700 ? 110 : 68;
+      const viewportH = Math.max(120, window.innerHeight - barTop - 70);
       const scale = Math.min(viewportW / this._width, viewportH / this._height);
       const scaledW = this._width * scale;
       const scaledH = this._height * scale;
       const offsetX = (viewportW - scaledW) / 2;
-      const offsetY = (viewportH - scaledH) / 2;
+      const offsetY = barTop + (viewportH - scaledH) / 2;
 
       stage.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
       stage.style.top = '0';

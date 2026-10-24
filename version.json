@@ -1,6 +1,8 @@
 {
-  "version": "b-preview-20261024-1",
-  "topics": 2,
+  "version": "b-full-20261024-2",
+  "topics": 18,
   "theme": "B",
-  "audioPages": 2
+  "audioPages": 18,
+  "audioSeconds": 667.602,
+  "cuePoints": 54
 }
